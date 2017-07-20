@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <%- include ./partials/head %>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+   <div class="container">
+    <h1>Search for an Artist</h1>
+    <form id="search-form">
+        <input type="text" id="query" value="" class="form-control" />
+        <input type="button" id="search" class="btn btn-primary" value="Search"> 
+    </form>
+
+<div id="new-results">
+  <% data.forEach(function(e){ %>
+    <div class="result-div" data-id=<%=e.id%>>
+    <%/* will render the artist name from data */%>
+      <input class="input_item" type="text" name="artist-name" value="<%=e.name%>" readonly>
+      <button class="edit">Edit</button>
+      <button class="delete">Delete</button>
+    </div>
+    <% }) %>
+</div>
+     
+</form>
+<% include ./partials/scripts %>
+  </body>
+</html>
